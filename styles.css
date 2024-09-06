@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #1b1b2f; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem; 
+    flex-direction: column;
+    color: white;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.title {
+    margin: 5px;
+    font-size: 3rem; 
+    color: #f0f0f0;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+.subtext {
+    color: #a3a3e3; 
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.board {
+    display: inline-grid;
+    padding: 15px;
+    grid-template-columns: repeat(var(--size), 55px); 
+    grid-template-rows: repeat(var(--size), 55px);
+    gap: 8px; 
+    background-color: #121530; 
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8); 
+}
+
+.board>* {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 2px solid #393e46;
+    user-select: none;
+    border-radius: 10px; 
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.board>*:hover {
+    box-shadow: 0 4px 10px rgba(80, 220, 150, 0.8); 
+    transform: translateY(-2px); 
+}
+
+.board>[data-status="hidden"] {
+    background-color: #30336b; 
+    cursor: pointer;
+    border: 2px solid #474787; 
+}
+
+.board>[data-status="mine"] {
+    background-color: #ff3838; 
+    color: #fff;
+    font-weight: bold;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5); 
+}
+
+.board>[data-status="number"] {
+    background-color: #2f3640; 
+    color: #18dcff; 
+    font-weight: bold;
+}
+
+.board>[data-status="marked"] {
+    background-color: #05c46b; 
+    color: #121530; 
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(var(--size), 45px); 
+        grid-template-rows: repeat(var(--size), 45px);
+        gap: 6px;
+    }
+
+    body {
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtext {
+        font-size: 1.2rem;
+    }
+}
